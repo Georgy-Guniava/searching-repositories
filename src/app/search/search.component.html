@@ -1,0 +1,36 @@
+<div class="search">
+  <div class="filter">
+    <div class="type">
+      <select [(ngModel)]="type">
+        <option>Repositories</option>
+      </select>
+    </div>
+    <div class="language">
+      <select [(ngModel)]="language">
+        <option>JavaScript</option>
+        <option>css</option>
+        <option>html</option>
+        <option>php</option>
+        <option>ruby</option>
+        <option>c++</option>
+        <option>python</option>
+        <option>c#</option>
+        <option>java</option>
+        <option>go</option>
+        <option>haskel</option>
+      </select>
+    </div>
+    <div class="search-input">
+      <label for="search-input">Type here for search</label>
+      <input id="search-input" type="text" [(ngModel)]="tags">
+    </div>
+    <button (click)="searchRepositories()" class="search-btn" type="submit">SEARCH</button>
+  </div>
+  <div class="mapping-type">
+    <img id="tile" src="../../assets/tile.svg">
+    <img id="line" src="../../assets/line.svg">
+  </div>
+  <div class="repositories-list">
+
+  </div>
+</div>
