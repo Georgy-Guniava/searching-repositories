@@ -19,18 +19,11 @@ export class MyListComponent implements OnInit {
   }
 
   clickOnCheckbox(id) {
-    this.repositories.forEach((item) => {
-      if (item.id === id) {
-        item.checked = !item.checked;
-        this.repositoriesService.removeRegository(item.id);
-        this.repositories = this.repositoriesService.getMyRepositories();
-      }
-    });
+    this.repositoriesService.removeRegository(id);
   }
 
   changeDisplayType() {
     this.displayType = !this.displayType;
-    console.log('this.displayType', this.displayType);
   }
 
 }

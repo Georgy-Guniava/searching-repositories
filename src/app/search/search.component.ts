@@ -42,11 +42,7 @@ export class SearchComponent implements OnInit {
     abservRepositories.subscribe(  (repositories) => {
       // @ts-ignore
       const items  = repositories.items;
-      if (items.length) {
-        this.notFoundFlag = false;
-      } else {
-        this.notFoundFlag = true;
-      }
+      this.notFoundFlag = !items.length;
       this.repositories = this.repositoriesService.parsToRepo(items);
     });
 
