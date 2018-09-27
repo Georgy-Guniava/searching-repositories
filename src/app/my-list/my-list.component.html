@@ -1,43 +1,16 @@
-<div class="search">
-  <div class="filter">
-    <div class="type">
-      <select [(ngModel)]="type">
-        <option>Repositories</option>
-      </select>
-    </div>
-    <div class="language">
-      <select [(ngModel)]="language">
-        <option>JavaScript</option>
-        <option>css</option>
-        <option>html</option>
-        <option>php</option>
-        <option>ruby</option>
-        <option>c++</option>
-        <option>python</option>
-        <option>c#</option>
-        <option>java</option>
-        <option>go</option>
-        <option>haskel</option>
-      </select>
-    </div>
-    <div class="search-input">
-      <label for="search-input">Type here for search</label>
-      <input [ngClass]="{'reb-border': !!error}" id="search-input" (focus)="error = ''" type="text" [(ngModel)]="searchText">
-      <div class="error search-error">
-        <span>{{ error }}</span>
-      </div>
-    </div>
-    <button (click)="searchRepositories()" class="search-btn" type="submit">SEARCH</button>
+<div class="my-list">
+  <div class="title">
+    <span>My List</span>
   </div>
-  <div *ngIf="repositories.length > 0" class="mapping-type">
+  <div *ngIf="!notRepoFlag" class="mapping-type">
     <img *ngIf="displayType" class="pointer" (click)="changeDisplayType()" src="../../assets/tile.svg">
     <img *ngIf="displayType" src="../../assets/line-dark.svg">
     <img *ngIf="!displayType" src="../../assets/tile-dark.svg">
     <img *ngIf="!displayType" class="pointer" (click)="changeDisplayType()" src="../../assets/line.svg">
   </div>
-  <div *ngIf="notFoundFlag" class="without-repository">
-    <h4>NO RESULTS FOUND</h4>
-    <p>select other parameters and try again</p>
+  <div *ngIf="notRepoFlag" class="without-repository">
+    <h4>YOU HAVE NO REPOSITORIES</h4>
+    <p>you need to add a repository in the search</p>
   </div>
   <div class="repositories-list">
     <div *ngIf="displayType" class="strings">
@@ -73,8 +46,7 @@
           <img src="../../assets/star.svg">
           <span>{{ repository.stargazers_count }}k</span>
         </div>
-        <button *ngIf="!repository.checked" (click)="clickOnCheckbox(repository.id)" class="add-repo">ADD TO LIST</button>
-        <button *ngIf="repository.checked" (click)="clickOnCheckbox(repository.id)" class="remove-repo">REMOVE FROM LIST</button>
+        <button (click)="clickOnCheckbox(repository.id)" class="remove-repo">REMOVE FROM LIST</button>
       </div>
     </div>
   </div>

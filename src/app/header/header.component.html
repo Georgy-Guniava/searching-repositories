@@ -1,20 +1,22 @@
-<div class="header">
-  <div class="logo">
-    <div class="logo__img">
-      <img class="github-logo" src="../../assets/path2.svg">
-      <img class="magnifier-handle" src="../../assets/path4534.svg">
+<div class="background">
+  <div class="header">
+    <div class="logo">
+      <div class="logo__img">
+        <img class="github-logo" src="../../assets/path2.svg">
+        <img class="magnifier-handle" src="../../assets/path4534.svg">
+      </div>
+      <div class="logo__text">
+        <h4>GitHub</h4>
+        <p>search</p>
+      </div>
     </div>
-    <div class="logo__text">
-      <h4>GitHub</h4>
-      <p>search</p>
-    </div>
-  </div>
-  <div class="nav-bar">
-    <div class="nav__search active">
-      <span>Search</span>
-    </div>
-    <div class="nav__my-list">
-      <span>My List</span>
+    <div class="nav-bar">
+      <div class="nav__search " [ngClass]="{'active': flag}">
+        <a routerLink="/search" (click)='goSearch()'><span>Search</span></a>
+      </div>
+      <div class="nav__my-list" [ngClass]="{'active': !flag}">
+        <a routerLink="/my-list" (click)='goMyList()'><span>My List</span></a>
+      </div>
     </div>
   </div>
 </div>
